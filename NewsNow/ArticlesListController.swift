@@ -1,5 +1,5 @@
 //
-//  VideosController.swift
+//  ArticlesController.swift
 //  NewsNow
 //
 //  Created by Lucas M Soares on 11/09/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VideosController: UITableViewController {
+class ArticlesListController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

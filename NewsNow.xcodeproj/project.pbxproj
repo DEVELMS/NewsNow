@@ -8,14 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		B28E9AF8F39F6BF0187E0B57 /* Pods_NewsNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4A556D13BBE38D96F66A54 /* Pods_NewsNow.framework */; };
+		C23A77691D8F34630041C340 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A77681D8F34630041C340 /* VideoModel.swift */; };
+		C23A776B1D8F34740041C340 /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A776A1D8F34740041C340 /* ArticleModel.swift */; };
+		C23A776D1D8F34860041C340 /* VideoDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A776C1D8F34860041C340 /* VideoDao.swift */; };
+		C23A776F1D8F34950041C340 /* ArticleDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A776E1D8F34950041C340 /* ArticleDao.swift */; };
+		C23A77711D8F34A00041C340 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A77701D8F34A00041C340 /* Service.swift */; };
+		C23A77741D8F365A0041C340 /* NewsNowUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A77731D8F365A0041C340 /* NewsNowUrl.swift */; };
+		C23A77771D8F38840041C340 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A77761D8F38840041C340 /* Protocols.swift */; };
+		C23A777A1D8F46120041C340 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A77791D8F46120041C340 /* VideoCell.swift */; };
+		C2D45E4D1D89DF5200FA951B /* VideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D45E4C1D89DF5200FA951B /* VideoController.swift */; };
+		C2D45E4F1D89DF6300FA951B /* ArticleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D45E4E1D89DF6300FA951B /* ArticleController.swift */; };
 		C2EA50C81D84931500A3B1B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA50C71D84931500A3B1B5 /* AppDelegate.swift */; };
 		C2EA50CF1D84931500A3B1B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2EA50CD1D84931500A3B1B5 /* Main.storyboard */; };
 		C2EA50D11D84931500A3B1B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2EA50D01D84931500A3B1B5 /* Assets.xcassets */; };
 		C2EA50D41D84931500A3B1B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2EA50D21D84931500A3B1B5 /* LaunchScreen.storyboard */; };
 		C2EA50DF1D84931500A3B1B5 /* NewsNowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA50DE1D84931500A3B1B5 /* NewsNowTests.swift */; };
 		C2EA50EA1D84931500A3B1B5 /* NewsNowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA50E91D84931500A3B1B5 /* NewsNowUITests.swift */; };
-		C2EA50FC1D86355600A3B1B5 /* VideosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA50FB1D86355600A3B1B5 /* VideosController.swift */; };
-		C2EA50FE1D86359B00A3B1B5 /* ArticlesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA50FD1D86359B00A3B1B5 /* ArticlesController.swift */; };
+		C2EA50FC1D86355600A3B1B5 /* VideoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA50FB1D86355600A3B1B5 /* VideoListController.swift */; };
+		C2EA50FE1D86359B00A3B1B5 /* ArticlesListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA50FD1D86359B00A3B1B5 /* ArticlesListController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +48,16 @@
 /* Begin PBXFileReference section */
 		5E9062DA5BC29A210E990E9D /* Pods-NewsNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsNow.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewsNow/Pods-NewsNow.release.xcconfig"; sourceTree = "<group>"; };
 		B25225EEA70A587E183EE7BC /* Pods-NewsNow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsNow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewsNow/Pods-NewsNow.debug.xcconfig"; sourceTree = "<group>"; };
+		C23A77681D8F34630041C340 /* VideoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
+		C23A776A1D8F34740041C340 /* ArticleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
+		C23A776C1D8F34860041C340 /* VideoDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoDao.swift; sourceTree = "<group>"; };
+		C23A776E1D8F34950041C340 /* ArticleDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleDao.swift; sourceTree = "<group>"; };
+		C23A77701D8F34A00041C340 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		C23A77731D8F365A0041C340 /* NewsNowUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsNowUrl.swift; sourceTree = "<group>"; };
+		C23A77761D8F38840041C340 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		C23A77791D8F46120041C340 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		C2D45E4C1D89DF5200FA951B /* VideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoController.swift; sourceTree = "<group>"; };
+		C2D45E4E1D89DF6300FA951B /* ArticleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleController.swift; sourceTree = "<group>"; };
 		C2EA50C41D84931500A3B1B5 /* NewsNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2EA50C71D84931500A3B1B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2EA50CE1D84931500A3B1B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -50,8 +70,8 @@
 		C2EA50E51D84931500A3B1B5 /* NewsNowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsNowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2EA50E91D84931500A3B1B5 /* NewsNowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsNowUITests.swift; sourceTree = "<group>"; };
 		C2EA50EB1D84931500A3B1B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C2EA50FB1D86355600A3B1B5 /* VideosController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideosController.swift; sourceTree = "<group>"; };
-		C2EA50FD1D86359B00A3B1B5 /* ArticlesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesController.swift; sourceTree = "<group>"; };
+		C2EA50FB1D86355600A3B1B5 /* VideoListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoListController.swift; sourceTree = "<group>"; };
+		C2EA50FD1D86359B00A3B1B5 /* ArticlesListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesListController.swift; sourceTree = "<group>"; };
 		DA4A556D13BBE38D96F66A54 /* Pods_NewsNow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsNow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -90,6 +110,48 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C23A77651D8F34160041C340 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				C23A77701D8F34A00041C340 /* Service.swift */,
+			);
+			name = service;
+			sourceTree = "<group>";
+		};
+		C23A77661D8F341C0041C340 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				C23A77681D8F34630041C340 /* VideoModel.swift */,
+				C23A776A1D8F34740041C340 /* ArticleModel.swift */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		C23A77671D8F34240041C340 /* dao */ = {
+			isa = PBXGroup;
+			children = (
+				C23A776C1D8F34860041C340 /* VideoDao.swift */,
+				C23A776E1D8F34950041C340 /* ArticleDao.swift */,
+			);
+			name = dao;
+			sourceTree = "<group>";
+		};
+		C23A77721D8F36380041C340 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C23A77731D8F365A0041C340 /* NewsNowUrl.swift */,
+			);
+			name = helpers;
+			sourceTree = "<group>";
+		};
+		C23A77751D8F384C0041C340 /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C23A77761D8F38840041C340 /* Protocols.swift */,
+			);
+			name = protocols;
+			sourceTree = "<group>";
+		};
 		C2EA50BB1D84931500A3B1B5 = {
 			isa = PBXGroup;
 			children = (
@@ -116,9 +178,13 @@
 			isa = PBXGroup;
 			children = (
 				C2EA50F81D8634C700A3B1B5 /* application */,
-				C2EA50FA1D8634FD00A3B1B5 /* resources */,
+				C23A77751D8F384C0041C340 /* protocols */,
+				C23A77651D8F34160041C340 /* service */,
+				C23A77671D8F34240041C340 /* dao */,
+				C23A77661D8F341C0041C340 /* models */,
 				C2EA50F71D8634B500A3B1B5 /* controllers */,
 				C2EA50F91D8634EB00A3B1B5 /* views */,
+				C23A77721D8F36380041C340 /* helpers */,
 			);
 			path = NewsNow;
 			sourceTree = "<group>";
@@ -144,8 +210,10 @@
 		C2EA50F71D8634B500A3B1B5 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C2EA50FB1D86355600A3B1B5 /* VideosController.swift */,
-				C2EA50FD1D86359B00A3B1B5 /* ArticlesController.swift */,
+				C2EA50FB1D86355600A3B1B5 /* VideoListController.swift */,
+				C2D45E4C1D89DF5200FA951B /* VideoController.swift */,
+				C2EA50FD1D86359B00A3B1B5 /* ArticlesListController.swift */,
+				C2D45E4E1D89DF6300FA951B /* ArticleController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -154,8 +222,8 @@
 			isa = PBXGroup;
 			children = (
 				C2EA50D51D84931500A3B1B5 /* Info.plist */,
-				C2EA50C71D84931500A3B1B5 /* AppDelegate.swift */,
 				C2EA50D01D84931500A3B1B5 /* Assets.xcassets */,
+				C2EA50C71D84931500A3B1B5 /* AppDelegate.swift */,
 			);
 			name = application;
 			sourceTree = "<group>";
@@ -165,15 +233,9 @@
 			children = (
 				C2EA50CD1D84931500A3B1B5 /* Main.storyboard */,
 				C2EA50D21D84931500A3B1B5 /* LaunchScreen.storyboard */,
+				C23A77791D8F46120041C340 /* VideoCell.swift */,
 			);
 			name = views;
-			sourceTree = "<group>";
-		};
-		C2EA50FA1D8634FD00A3B1B5 /* resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = resources;
 			sourceTree = "<group>";
 		};
 		DA7FD8035EB65545EF0987D5 /* Frameworks */ = {
@@ -366,8 +428,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2EA50C81D84931500A3B1B5 /* AppDelegate.swift in Sources */,
-				C2EA50FC1D86355600A3B1B5 /* VideosController.swift in Sources */,
-				C2EA50FE1D86359B00A3B1B5 /* ArticlesController.swift in Sources */,
+				C23A77741D8F365A0041C340 /* NewsNowUrl.swift in Sources */,
+				C23A77691D8F34630041C340 /* VideoModel.swift in Sources */,
+				C23A77771D8F38840041C340 /* Protocols.swift in Sources */,
+				C2D45E4F1D89DF6300FA951B /* ArticleController.swift in Sources */,
+				C2EA50FC1D86355600A3B1B5 /* VideoListController.swift in Sources */,
+				C23A776D1D8F34860041C340 /* VideoDao.swift in Sources */,
+				C23A777A1D8F46120041C340 /* VideoCell.swift in Sources */,
+				C2EA50FE1D86359B00A3B1B5 /* ArticlesListController.swift in Sources */,
+				C23A776B1D8F34740041C340 /* ArticleModel.swift in Sources */,
+				C23A77711D8F34A00041C340 /* Service.swift in Sources */,
+				C23A776F1D8F34950041C340 /* ArticleDao.swift in Sources */,
+				C2D45E4D1D89DF5200FA951B /* VideoController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

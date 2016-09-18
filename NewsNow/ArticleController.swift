@@ -1,14 +1,14 @@
 //
-//  ArticlesController.swift
+//  ArticleController.swift
 //  NewsNow
 //
-//  Created by Lucas M Soares on 11/09/16.
+//  Created by Lucas M Soares on 14/09/16.
 //
 //
 
 import UIKit
 
-class ArticlesController: UITableViewController {
+class ArticleController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
