@@ -10,6 +10,21 @@ import SwiftyJSON
 
 class VideoDao {
 
+    func getVideo(parameters: [String: AnyObject]? = nil, id: Int, success: (video: Video) -> Void, fail: (error: String) -> Void) {
+        
+        Service.sharedInstance.APIRequest(.GET, endPoint: .video, filters: [(name: "id", value: id)], parameters: parameters,
+                                          
+            success: { result in
+                
+                success(video: self.parseVideo(JSON(result)))
+                                            
+            }, failure: { failure in
+                
+                fail(error: "Não foi possível carregar os videos.")
+            }
+        )
+    }
+    
     func getVideos(parameters: [String: AnyObject]? = nil, success: (videos: [Video]) -> Void, fail: (error: String) -> Void) {
         
         Service.sharedInstance.APIRequest(.GET, endPoint: .videos, parameters: parameters,
@@ -25,20 +40,20 @@ class VideoDao {
         )
     }
     
-//    func getRelated(parameters: [String: AnyObject]? = nil, filters: [(name: String, value: AnyObject)], success: (videos: [Video]) -> Void, fail: (error: String) -> Void) {
-//        
-//        Service.sharedInstance.APIRequest(.GET, endPoint: .videos, parameters: parameters,
-//                                          
-//            success: { result in
-//                                            
-//                success(videos: self.parseVideos(JSON(result)))
-//                                            
-//            }, failure: { failure in
-//                
-//                fail(error: "Não foi possível carregar os videos relacionados.")
-//            }
-//        )
-//    }
+    func getRelated(parameters: [String: AnyObject]? = nil, id: Int, success: (videos: [Video]) -> Void, fail: (error: String) -> Void) {
+        
+        Service.sharedInstance.APIRequest(.GET, endPoint: .related, filters: [(name: "id", value: id)], parameters: parameters,
+                                          
+            success: { result in
+                                            
+                success(videos: self.parseVideos(JSON(result)))
+                                            
+            }, failure: { failure in
+                
+                fail(error: "Não foi possível carregar os videos relacionados.")
+            }
+        )
+    }
     
     private func parseVideos(json: JSON) -> [Video] {
         
@@ -62,7 +77,12 @@ class VideoDao {
         let thumbnail = json["thumbnail"].stringValue
         let duration = json["duration"].stringValue
         
-        let video = Video(id: id, url: url, description: description, thumbnail: thumbnail, duration: duration)
+        var video = Video(id: id, url: url, description: description, thumbnail: thumbnail, duration: duration)
+        
+        if json["related"].array != nil {
+            
+            video.related = parseVideos(json["related"])
+        }
         
         return video
     }

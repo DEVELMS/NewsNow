@@ -27,7 +27,6 @@ extension NewsNowURL {
     private func getUrlWithFilters(url: String, filters: [(name: String, value: AnyObject)]) -> String {
 
         var newUrl = url
-        var idException = false
         
         for filter in filters.enumerate() {
             
@@ -38,22 +37,7 @@ extension NewsNowURL {
                 separator = "&"
             }
             
-            if filter.element.name == "[id]" || filter.element.name == "[page]" {
-                
-                newUrl = "\(newUrl)/\(filter.element.value)"
-                
-                idException = true
-            }
-            else {
-            
-                if idException {
-                    
-                    separator = "?"
-                    idException = false
-                }
-                
-                newUrl = "\(newUrl)\(separator)\(filter.element.name)=\(filter.element.value)"
-            }
+            newUrl = "\(newUrl)\(separator)\(filter.element.name)=\(filter.element.value)"
         }
         
         return newUrl
@@ -62,6 +46,7 @@ extension NewsNowURL {
 
 enum RequestType: String {
     
+    case video = "http://private-6cb7c-lmsdev.apiary-mock.com/video"
     case videos = "http://private-6cb7c-lmsdev.apiary-mock.com/videos"
     case related = "http://private-6cb7c-lmsdev.apiary-mock.com/related"
 }

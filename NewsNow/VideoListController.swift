@@ -9,19 +9,22 @@
 import UIKit
 
 class VideoListController: UITableViewController {
-
+    
     private var videos = [Video]()
     private var dao = VideoDao()
+    private var videoSelected = Video()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setTableViewAttributes()
         downloadContent()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    private func setTableViewAttributes() {
+
+        self.tableView.estimatedRowHeight = 250
+        self.tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     private func downloadContent() {
@@ -29,8 +32,6 @@ class VideoListController: UITableViewController {
         dao.getVideos (
             success: {
                 videos in
-            
-                print(videos)
                 
                 self.videos = videos
                 self.tableView.reloadData()
@@ -45,12 +46,11 @@ class VideoListController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        
         return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         
         return videos.count
     }
@@ -66,8 +66,39 @@ class VideoListController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        videoSelected = videos[indexPath.row]
+        
         performSegueWithIdentifier("sgVideo", sender: nil)
     }
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 60))
+        let title = UILabel()
+        
+        title.text = "Vídeos"
+        
+        title.sizeToFit()
+        
+        let x = header.frame.width / 2 - title.frame.width / 2
+        let y = header.frame.height / 2 - title.frame.height / 2 + 10
+        
+        title.frame = CGRect(x: x, y: y, width: title.frame.width, height: title.frame.height)
+        
+        title.textColor = .whiteColor()
+        header.backgroundColor = .darkGrayColor()
+        
+        header.addSubview(title)
+        
+        return header
+    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return 60
+    }
+    
+    // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
@@ -79,10 +110,11 @@ class VideoListController: UITableViewController {
                 
                 if let videoVC = segue.destinationViewController as? VideoController {
                     
-                    profileHistoryVC.user = user
+                    videoVC.video = videoSelected
                 }
                 
             default: break
+                
             }
         }
     }
