@@ -10,7 +10,7 @@ import SwiftyJSON
 
 class VideoDao {
 
-    func getVideo(parameters: [String: AnyObject]? = nil, id: Int, success: (video: Video) -> Void, fail: (error: String) -> Void) {
+    func getVideo(parameters: [String: AnyObject]? = nil, id: String, success: (video: Video) -> Void, fail: (error: String) -> Void) {
         
         Service.sharedInstance.APIRequest(.GET, endPoint: .video, filters: [(name: "id", value: id)], parameters: parameters,
                                           
@@ -40,7 +40,7 @@ class VideoDao {
         )
     }
     
-    func getRelated(parameters: [String: AnyObject]? = nil, id: Int, success: (videos: [Video]) -> Void, fail: (error: String) -> Void) {
+    func getRelated(parameters: [String: AnyObject]? = nil, id: String, success: (videos: [Video]) -> Void, fail: (error: String) -> Void) {
         
         Service.sharedInstance.APIRequest(.GET, endPoint: .related, filters: [(name: "id", value: id)], parameters: parameters,
                                           
@@ -71,7 +71,7 @@ class VideoDao {
     
     private func parseVideo(json: JSON) -> Video {
         
-        let id = json["id"].intValue
+        let id = json["id"].stringValue
         let url = json["url"].stringValue
         let description = json["description"].stringValue
         let thumbnail = json["thumbnail"].stringValue

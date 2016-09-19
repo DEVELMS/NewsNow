@@ -8,7 +8,7 @@
 
 struct Video {
     
-    var id = Int()
+    var id = String()
     var url = String()
     var description = String()
     var thumbnail = String()
@@ -17,7 +17,7 @@ struct Video {
     
     init () {}
     
-    init(id: Int, url: String, description: String, thumbnail: String, duration: String) {
+    init(id: String, url: String, description: String, thumbnail: String, duration: String) {
         
         self.id = id
         self.url = url

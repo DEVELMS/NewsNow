@@ -16,6 +16,7 @@
 		C23A77741D8F365A0041C340 /* NewsNowUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A77731D8F365A0041C340 /* NewsNowUrl.swift */; };
 		C23A77771D8F38840041C340 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A77761D8F38840041C340 /* Protocols.swift */; };
 		C23A777A1D8F46120041C340 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A77791D8F46120041C340 /* VideoCell.swift */; };
+		C2B619B61D8F8C7E006134D2 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B619B51D8F8C7E006134D2 /* ArticleCell.swift */; };
 		C2D45E4D1D89DF5200FA951B /* VideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D45E4C1D89DF5200FA951B /* VideoController.swift */; };
 		C2D45E4F1D89DF6300FA951B /* ArticleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D45E4E1D89DF6300FA951B /* ArticleController.swift */; };
 		C2EA50C81D84931500A3B1B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA50C71D84931500A3B1B5 /* AppDelegate.swift */; };
@@ -56,6 +57,7 @@
 		C23A77731D8F365A0041C340 /* NewsNowUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsNowUrl.swift; sourceTree = "<group>"; };
 		C23A77761D8F38840041C340 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		C23A77791D8F46120041C340 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		C2B619B51D8F8C7E006134D2 /* ArticleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 		C2D45E4C1D89DF5200FA951B /* VideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoController.swift; sourceTree = "<group>"; };
 		C2D45E4E1D89DF6300FA951B /* ArticleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleController.swift; sourceTree = "<group>"; };
 		C2EA50C41D84931500A3B1B5 /* NewsNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -234,6 +236,7 @@
 				C2EA50CD1D84931500A3B1B5 /* Main.storyboard */,
 				C2EA50D21D84931500A3B1B5 /* LaunchScreen.storyboard */,
 				C23A77791D8F46120041C340 /* VideoCell.swift */,
+				C2B619B51D8F8C7E006134D2 /* ArticleCell.swift */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				C23A77741D8F365A0041C340 /* NewsNowUrl.swift in Sources */,
 				C23A77691D8F34630041C340 /* VideoModel.swift in Sources */,
 				C23A77771D8F38840041C340 /* Protocols.swift in Sources */,
+				C2B619B61D8F8C7E006134D2 /* ArticleCell.swift in Sources */,
 				C2D45E4F1D89DF6300FA951B /* ArticleController.swift in Sources */,
 				C2EA50FC1D86355600A3B1B5 /* VideoListController.swift in Sources */,
 				C23A776D1D8F34860041C340 /* VideoDao.swift in Sources */,

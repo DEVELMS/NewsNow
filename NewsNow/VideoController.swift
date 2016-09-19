@@ -7,16 +7,34 @@
 //
 
 import UIKit
+import YouTubePlayer
 
 class VideoController: UITableViewController {
 
     var video = Video()
     private var dao = VideoDao()
+    private var videoPlayer: YouTubePlayerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         downloadContent()
+    }
+    
+    private func setLayoutAttributes(cell: UITableViewCell) {
+    
+        videoPlayer = YouTubePlayerView(frame: CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height))
+        videoPlayer.loadVideoID(video.id)
+        
+        cell.addSubview(videoPlayer)
+        
+        if videoPlayer.ready {
+            if videoPlayer.playerState != YouTubePlayerState.Playing {
+                videoPlayer.play()
+            } else {
+                videoPlayer.pause()
+            }
+        }
     }
 
     private func downloadContent() {
@@ -48,7 +66,7 @@ class VideoController: UITableViewController {
         
         return closeButton
     }
-
+    
     @IBAction func closeModal(sender: AnyObject) {
         
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -76,6 +94,8 @@ class VideoController: UITableViewController {
         if indexPath.section == 0 {
             
             let cell = tableView.dequeueReusableCellWithIdentifier("video", forIndexPath: indexPath)
+            
+            setLayoutAttributes(cell)
             
             return cell
         }
@@ -160,17 +180,20 @@ class VideoController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        dao.getVideo(id: video.related[indexPath.row].id,
-            success: {
-                video in
-                
-                self.video = video
-                self.tableView.reloadData()
-                        
-            }, fail: {
-                failure in
-                
-                print(failure)
-        })
+        if indexPath.section != 0 {
+            
+            dao.getVideo(id: video.related[indexPath.row].id,
+                         success: {
+                            video in
+                            
+                            self.video = video
+                            self.tableView.reloadData()
+                            
+                }, fail: {
+                    failure in
+                    
+                    print(failure)
+            })
+        }
     }
 }

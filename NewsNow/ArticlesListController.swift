@@ -10,86 +10,112 @@ import UIKit
 
 class ArticlesListController: UITableViewController {
 
+    private var articles = [Article]()
+    private var dao = ArticleDao()
+    private var articleSelected = Article()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        setTableViewAttributes()
+        downloadContent()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    private func setTableViewAttributes() {
+        
+        self.tableView.estimatedRowHeight = 250
+        self.tableView.rowHeight = UITableViewAutomaticDimension
     }
-
+    
+    private func downloadContent() {
+        
+        dao.getArticles (
+            success: {
+                articles in
+                
+                self.articles = articles
+                self.tableView.reloadData()
+                
+            }, fail: {
+                failure in
+                
+                print(failure)
+        })
+    }
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        
+        return 1
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        return articles.count
     }
-
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("articleCell", forIndexPath: indexPath) as! ArticleCell
+        
+        cell.setAttributes(articles[indexPath.row])
+        
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        articleSelected = articles[indexPath.row]
+        
+        performSegueWithIdentifier("sgArticle", sender: nil)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 60))
+        let title = UILabel()
+        
+        title.text = "Artigos"
+        
+        title.sizeToFit()
+        
+        let x = header.frame.width / 2 - title.frame.width / 2
+        let y = header.frame.height / 2 - title.frame.height / 2 + 10
+        
+        title.frame = CGRect(x: x, y: y, width: title.frame.width, height: title.frame.height)
+        
+        title.textColor = .whiteColor()
+        header.backgroundColor = .darkGrayColor()
+        
+        header.addSubview(title)
+        
+        return header
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return 60
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if let identifier = segue.identifier {
+        
+            switch identifier {
+                
+            case "sgArticle":
+                
+                if let articleVC = segue.destinationViewController as? ArticleController {
+                    
+                    articleVC.article = articleSelected
+                }
+                
+            default: break
+                
+            }
+        }
     }
-    */
-
 }

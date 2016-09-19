@@ -49,4 +49,5 @@ enum RequestType: String {
     case video = "http://private-6cb7c-lmsdev.apiary-mock.com/video"
     case videos = "http://private-6cb7c-lmsdev.apiary-mock.com/videos"
     case related = "http://private-6cb7c-lmsdev.apiary-mock.com/related"
+    case articles = "http://private-6cb7c-lmsdev.apiary-mock.com/articles"
 }
