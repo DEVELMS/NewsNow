@@ -18,7 +18,22 @@ class VideoController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setAttributes()
+        setTitle()
         downloadContent()
+    }
+    
+    private func setAttributes() {
+    
+        self.navigationController?.navigationBar.barTintColor = .darkGrayColor()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        self.navigationController?.navigationBar.tintColor = .whiteColor()
+        self.navigationController?.navigationBar.translucent = false
+    }
+    
+    private func setTitle() {
+    
+        self.title = video.description
     }
     
     private func setLayoutAttributes(cell: UITableViewCell) {
@@ -29,9 +44,13 @@ class VideoController: UITableViewController {
         cell.addSubview(videoPlayer)
         
         if videoPlayer.ready {
+            
             if videoPlayer.playerState != YouTubePlayerState.Playing {
+                
                 videoPlayer.play()
-            } else {
+            }
+            else {
+                
                 videoPlayer.pause()
             }
         }
@@ -40,6 +59,7 @@ class VideoController: UITableViewController {
     private func downloadContent() {
     
         dao.getRelated(id: video.id,
+                       
             success: {
                 videos in
                 
@@ -51,25 +71,6 @@ class VideoController: UITableViewController {
                 
                 print(failure)
         })
-    }
-    
-    private func addCloseButton() -> UIButton {
-    
-        let size = CGFloat(40)
-        let x = CGFloat(5)
-        let y = CGFloat(20)
-        
-        let closeButton = UIButton(frame: CGRect(x: x, y: y, width: size, height: size))
-        closeButton.setImage(UIImage(imageLiteral: "closeDown"), forState: .Normal)
-        closeButton.imageView?.tintColor = .whiteColor()
-        closeButton.addTarget(self, action: #selector(closeModal), forControlEvents: .TouchUpInside)
-        
-        return closeButton
-    }
-    
-    @IBAction func closeModal(sender: AnyObject) {
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: - Table view data source
@@ -119,63 +120,41 @@ class VideoController: UITableViewController {
 
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let header = UIView()
-        let title = UILabel()
-        var headerHeight = CGFloat()
-        let titleHeight = CGFloat(30)
-        var x = CGFloat()
-        var y = CGFloat()
-        
-        title.textColor = .whiteColor()
-        
-        if section == 0 {
+        if section == 1 {
             
-            let closeButton = addCloseButton()
-            title.text = video.description
-            header.backgroundColor = .darkGrayColor()
-            
-            headerHeight = 80
-            x = closeButton.frame.width + closeButton.frame.origin.x + 10
-            y = headerHeight / 2 - titleHeight / 2 + 10
-            
-            header.addSubview(closeButton)
-        }
-        else {
+            let header = UIView()
+            let title = UILabel()
+            let headerHeight = CGFloat(40)
+            let titleHeight = CGFloat(30)
+            let x = CGFloat(20)
+            let y = headerHeight / 2 - titleHeight / 2
             
             title.text = "Vídeos relacionados"
+            
+            title.textColor = .whiteColor()
             header.backgroundColor = .lightGrayColor()
             
-            headerHeight = 50
-            x = 20
-            y = headerHeight / 2 - titleHeight / 2 + 5
-        }
-        
-        header.frame = CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: headerHeight)
-        title.frame = CGRect(x: x, y: y, width: header.frame.width - x * 2, height: titleHeight)
-        
-        header.addSubview(title)
-        
-        return header
-    }
-    
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        if section == 0 {
+            header.frame = CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: headerHeight)
+            title.frame = CGRect(x: x, y: y, width: header.frame.width - x * 2, height: titleHeight)
             
-            return video.description
+            header.addSubview(title)
+            
+            return header
         }
+        else {
         
-        return "Vídeos relacionados"
+            return nil
+        }
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        if section == 0 {
+        if section == 1 {
             
-            return 80
+            return 40
         }
         
-        return 50
+        return 0
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -183,11 +162,13 @@ class VideoController: UITableViewController {
         if indexPath.section != 0 {
             
             dao.getVideo(id: video.related[indexPath.row].id,
-                         success: {
-                            video in
+                         
+                success: {
+                    video in
                             
-                            self.video = video
-                            self.tableView.reloadData()
+                    self.video = video
+                    self.setTitle()
+                    self.tableView.reloadData()
                             
                 }, fail: {
                     failure in

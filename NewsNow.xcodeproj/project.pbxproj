@@ -26,7 +26,7 @@
 		C2EA50DF1D84931500A3B1B5 /* NewsNowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA50DE1D84931500A3B1B5 /* NewsNowTests.swift */; };
 		C2EA50EA1D84931500A3B1B5 /* NewsNowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA50E91D84931500A3B1B5 /* NewsNowUITests.swift */; };
 		C2EA50FC1D86355600A3B1B5 /* VideoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA50FB1D86355600A3B1B5 /* VideoListController.swift */; };
-		C2EA50FE1D86359B00A3B1B5 /* ArticlesListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA50FD1D86359B00A3B1B5 /* ArticlesListController.swift */; };
+		C2EA50FE1D86359B00A3B1B5 /* ArticleListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA50FD1D86359B00A3B1B5 /* ArticleListController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +73,7 @@
 		C2EA50E91D84931500A3B1B5 /* NewsNowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsNowUITests.swift; sourceTree = "<group>"; };
 		C2EA50EB1D84931500A3B1B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2EA50FB1D86355600A3B1B5 /* VideoListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoListController.swift; sourceTree = "<group>"; };
-		C2EA50FD1D86359B00A3B1B5 /* ArticlesListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesListController.swift; sourceTree = "<group>"; };
+		C2EA50FD1D86359B00A3B1B5 /* ArticleListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleListController.swift; sourceTree = "<group>"; };
 		DA4A556D13BBE38D96F66A54 /* Pods_NewsNow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsNow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -214,7 +214,7 @@
 			children = (
 				C2EA50FB1D86355600A3B1B5 /* VideoListController.swift */,
 				C2D45E4C1D89DF5200FA951B /* VideoController.swift */,
-				C2EA50FD1D86359B00A3B1B5 /* ArticlesListController.swift */,
+				C2EA50FD1D86359B00A3B1B5 /* ArticleListController.swift */,
 				C2D45E4E1D89DF6300FA951B /* ArticleController.swift */,
 			);
 			name = controllers;
@@ -319,6 +319,7 @@
 				TargetAttributes = {
 					C2EA50C31D84931500A3B1B5 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 579ZP5H5C6;
 					};
 					C2EA50D91D84931500A3B1B5 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -439,7 +440,7 @@
 				C2EA50FC1D86355600A3B1B5 /* VideoListController.swift in Sources */,
 				C23A776D1D8F34860041C340 /* VideoDao.swift in Sources */,
 				C23A777A1D8F46120041C340 /* VideoCell.swift in Sources */,
-				C2EA50FE1D86359B00A3B1B5 /* ArticlesListController.swift in Sources */,
+				C2EA50FE1D86359B00A3B1B5 /* ArticleListController.swift in Sources */,
 				C23A776B1D8F34740041C340 /* ArticleModel.swift in Sources */,
 				C23A77711D8F34A00041C340 /* Service.swift in Sources */,
 				C23A776F1D8F34950041C340 /* ArticleDao.swift in Sources */,
@@ -588,10 +589,14 @@
 			baseConfigurationReference = B25225EEA70A587E183EE7BC /* Pods-NewsNow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = NewsNow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.LMSdev.NewsNow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -600,10 +605,14 @@
 			baseConfigurationReference = 5E9062DA5BC29A210E990E9D /* Pods-NewsNow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = NewsNow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.LMSdev.NewsNow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

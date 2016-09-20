@@ -22,33 +22,15 @@ class ArticleController: UITableViewController {
         
         self.tableView.estimatedRowHeight = 410
         self.tableView.rowHeight = UITableViewAutomaticDimension
-    }
-    
-    private func addCloseButton() -> UIButton {
         
-        let size = CGFloat(40)
-        let x = CGFloat(5)
-        let y = CGFloat(20)
-        
-        let closeButton = UIButton(frame: CGRect(x: x, y: y, width: size, height: size))
-        closeButton.setImage(UIImage(imageLiteral: "closeDown"), forState: .Normal)
-        closeButton.imageView?.tintColor = .whiteColor()
-        closeButton.addTarget(self, action: #selector(closeModal), forControlEvents: .TouchUpInside)
-        
-        return closeButton
-    }
-    
-    @IBAction func closeModal(sender: AnyObject) {
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.title = "Artigo"
+        self.navigationController?.navigationBar.barTintColor = .darkGrayColor()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        self.navigationController?.navigationBar.tintColor = .whiteColor()
+        self.navigationController?.navigationBar.translucent = false
     }
     
     // MARK: - Table view data source
-    
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
-        return 1
-    }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -60,8 +42,6 @@ class ArticleController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("articleCell", forIndexPath: indexPath) as!  ArticleCell
         
         cell.setAttributes(article)
-        
-        cell.addSubview(addCloseButton())
         
         return cell
     }

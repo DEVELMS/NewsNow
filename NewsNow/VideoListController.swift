@@ -25,6 +25,10 @@ class VideoListController: UITableViewController {
 
         self.tableView.estimatedRowHeight = 250
         self.tableView.rowHeight = UITableViewAutomaticDimension
+        
+        self.navigationController?.navigationBar.barTintColor = .darkGrayColor()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        self.navigationController?.navigationBar.translucent = false
     }
     
     private func downloadContent() {
@@ -45,11 +49,6 @@ class VideoListController: UITableViewController {
     
     // MARK: - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
-        return 1
-    }
-    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return videos.count
@@ -69,33 +68,6 @@ class VideoListController: UITableViewController {
         videoSelected = videos[indexPath.row]
         
         performSegueWithIdentifier("sgVideo", sender: nil)
-    }
-    
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 60))
-        let title = UILabel()
-        
-        title.text = "Vídeos"
-        
-        title.sizeToFit()
-        
-        let x = header.frame.width / 2 - title.frame.width / 2
-        let y = header.frame.height / 2 - title.frame.height / 2 + 10
-        
-        title.frame = CGRect(x: x, y: y, width: title.frame.width, height: title.frame.height)
-        
-        title.textColor = .whiteColor()
-        header.backgroundColor = .darkGrayColor()
-        
-        header.addSubview(title)
-        
-        return header
-    }
-    
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        return 60
     }
     
     // MARK: - Navigation

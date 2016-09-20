@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -11,26 +10,43 @@
             <objects>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="4Yy-Fp-AGm" kind="relationship" relationship="viewControllers" id="a1J-j4-qYi"/>
-                        <segue destination="e3A-uT-ooK" kind="relationship" relationship="viewControllers" id="SHH-cw-DbE"/>
+                        <segue destination="n4d-wn-W1n" kind="relationship" relationship="viewControllers" id="2MD-Wa-YS6"/>
+                        <segue destination="qud-6K-8Rp" kind="relationship" relationship="viewControllers" id="dGg-xT-kFU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="568" y="28"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="GXq-XD-0c1">
+            <objects>
+                <navigationController id="n4d-wn-W1n" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="z0e-PU-ix5"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qNF-c2-E3h">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="4Yy-Fp-AGm" kind="relationship" relationship="rootViewController" id="ST2-zI-Is6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="grs-jv-See" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1558" y="-389"/>
+        </scene>
         <!--Vídeos-->
         <scene sceneID="ycf-1b-pkk">
             <objects>
                 <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="4Yy-Fp-AGm" customClass="VideoListController" customModule="NewsNow" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="203" sectionHeaderHeight="28" sectionFooterHeight="28" id="fPb-Ka-RZ5">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="0.85882352939999995" green="0.85882352939999995" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -99,21 +115,21 @@
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Vídeos" image="playIcon" selectedImage="playIcon" id="dhR-qe-b5j"/>
-                    <navigationItem key="navigationItem" id="S6k-1D-TRa"/>
+                    <navigationItem key="navigationItem" title="Vídeos" id="S6k-1D-TRa"/>
                     <connections>
-                        <segue destination="cHo-CF-hTz" kind="show" identifier="sgVideo" id="Tkr-zu-ruF"/>
+                        <segue destination="cHo-CF-hTz" kind="show" identifier="sgVideo" id="r2T-QY-9Yg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4CL-yA-RLA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1558" y="-401"/>
+            <point key="canvasLocation" x="2386" y="-389"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="5AF-Fe-Lwa">
             <objects>
-                <tableViewController id="cHo-CF-hTz" customClass="VideoController" customModule="NewsNow" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="cHo-CF-hTz" customClass="VideoController" customModule="NewsNow" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="245" sectionHeaderHeight="28" sectionFooterHeight="28" id="SOb-4B-Kqc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -193,18 +209,19 @@
                             <outlet property="delegate" destination="cHo-CF-hTz" id="GHg-To-BvO"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Root View Controller" id="BSD-2W-qVO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Baf-fc-oEB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2386" y="-401"/>
+            <point key="canvasLocation" x="3214" y="-389"/>
         </scene>
         <!--Artigos-->
         <scene sceneID="CGN-27-bBK">
             <objects>
-                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="e3A-uT-ooK" customClass="ArticlesListController" customModule="NewsNow" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="e3A-uT-ooK" customClass="ArticleListController" customModule="NewsNow" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zyU-Mb-bTN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -258,7 +275,6 @@
                                     <outlet property="articDescription" destination="szM-Bu-M78" id="LTN-Lk-J7B"/>
                                     <outlet property="articTitle" destination="DLo-XQ-bj1" id="Xx0-To-NA8"/>
                                     <outlet property="articleImage" destination="Hbz-WN-9QM" id="2Od-Sl-ucU"/>
-                                    <segue destination="h5y-Tv-fcc" kind="show" identifier="sgArticle" id="dmm-mK-IJL"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -267,20 +283,23 @@
                             <outlet property="delegate" destination="e3A-uT-ooK" id="tS0-R9-hwt"/>
                         </connections>
                     </tableView>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Artigos" image="articleIcon" selectedImage="articleIcon" id="H0r-T9-WHh"/>
-                    <navigationItem key="navigationItem" id="6yS-2D-zjW"/>
+                    <navigationItem key="navigationItem" title="Artigos" id="6yS-2D-zjW"/>
+                    <connections>
+                        <segue destination="h5y-Tv-fcc" kind="show" identifier="sgArticle" id="mMX-kx-4Zi"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SxU-uk-jdw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1558" y="471"/>
+            <point key="canvasLocation" x="2386" y="423"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="Gwx-2x-KPU">
             <objects>
-                <tableViewController id="h5y-Tv-fcc" customClass="ArticleController" customModule="NewsNow" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="h5y-Tv-fcc" customClass="ArticleController" customModule="NewsNow" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="415" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ir4-Yu-tmC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -335,11 +354,29 @@
                             <outlet property="delegate" destination="h5y-Tv-fcc" id="Wl8-JN-hR4"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Root View Controller" id="wcy-xF-Cqj"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTK-On-3n1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2386" y="471"/>
+            <point key="canvasLocation" x="3214" y="423"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="8Ya-1s-kgv">
+            <objects>
+                <navigationController id="qud-6K-8Rp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="DTu-TH-vku"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yDC-TL-Wxq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="e3A-uT-ooK" kind="relationship" relationship="rootViewController" id="jW2-Ry-iqT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zwn-dx-1gL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1558" y="423"/>
         </scene>
     </scenes>
     <resources>
