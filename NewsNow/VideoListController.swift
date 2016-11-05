@@ -10,33 +10,37 @@ import UIKit
 
 class VideoListController: UITableViewController {
     
-    private var videos = [Video]()
-    private var dao = VideoDao()
-    private var videoSelected = Video()
+    fileprivate var videos = [Video]()
+    fileprivate var dao = VideoDao()
+    fileprivate var videoSelected = Video()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setTableViewAttributes()
+        //downloadContent()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         downloadContent()
     }
     
-    private func setTableViewAttributes() {
+    fileprivate func setTableViewAttributes() {
 
         self.tableView.estimatedRowHeight = 250
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
-        self.navigationController?.navigationBar.barTintColor = .darkGrayColor()
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
-        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.barTintColor = .darkGray
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+        self.navigationController?.navigationBar.isTranslucent = false
     }
     
-    private func downloadContent() {
+    fileprivate func downloadContent() {
     
         dao.getVideos (
             success: {
                 videos in
-                
                 self.videos = videos
                 self.tableView.reloadData()
             
@@ -49,30 +53,29 @@ class VideoListController: UITableViewController {
     
     // MARK: - Table view data source
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return videos.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("videoCell", forIndexPath: indexPath) as! VideoCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "videoCell", for: indexPath) as! VideoCell
         
         cell.setAttributes(videos[indexPath.row])
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         videoSelected = videos[indexPath.row]
         
-        performSegueWithIdentifier("sgVideo", sender: nil)
+        performSegue(withIdentifier: "sgVideo", sender: nil)
     }
     
     // MARK: - Navigation
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let identifier = segue.identifier {
             
@@ -80,7 +83,7 @@ class VideoListController: UITableViewController {
                 
             case "sgVideo":
                 
-                if let videoVC = segue.destinationViewController as? VideoController {
+                if let videoVC = segue.destination as? VideoController {
                     
                     videoVC.video = videoSelected
                 }

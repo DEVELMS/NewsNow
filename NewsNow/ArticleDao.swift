@@ -10,22 +10,22 @@ import SwiftyJSON
 
 class ArticleDao {
     
-    func getArticles(parameters: [String: AnyObject]? = nil, success: (articles: [Article]) -> Void, fail: (error: String) -> Void) {
+    func getArticles(parameters: [String: Any]? = nil, success: @escaping (_ articles: [Article]) -> Void, fail: @escaping (_ error: String) -> Void) {
         
-        Service.sharedInstance.APIRequest(.GET, endPoint: .articles, parameters: parameters,
+        Service.sharedInstance.APIRequest(method: .GET, endPoint: .articles, parameters: parameters,
                                           
             success: { result in
                                             
-                success(articles: self.parseArticles(JSON(result)))
+                success(self.parseArticles(json: JSON(result)))
                                             
             }, failure: { failure in
                 
-                fail(error: "Não foi possível carregar os articles.")
+                fail("Não foi possível carregar os articles.")
             }
         )
     }
     
-    private func parseArticles(json: JSON) -> [Article] {
+    fileprivate func parseArticles(json: JSON) -> [Article] {
         
         var articles = [Article]()
         
@@ -39,7 +39,7 @@ class ArticleDao {
         return articles
     }
     
-    private func parseArticle(json: JSON) -> Article {
+    fileprivate func parseArticle(_ json: JSON) -> Article {
         
         let id = json["id"].intValue
         let description = json["description"].stringValue

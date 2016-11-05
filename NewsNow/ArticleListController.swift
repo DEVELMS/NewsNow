@@ -10,9 +10,9 @@ import UIKit
 
 class ArticleListController: UITableViewController {
 
-    private var articles = [Article]()
-    private var dao = ArticleDao()
-    private var articleSelected = Article()
+    fileprivate var articles = [Article]()
+    fileprivate var dao = ArticleDao()
+    fileprivate var articleSelected = Article()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,17 +21,17 @@ class ArticleListController: UITableViewController {
         downloadContent()
     }
     
-    private func setTableViewAttributes() {
+    fileprivate func setTableViewAttributes() {
         
         self.tableView.estimatedRowHeight = 270
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
-        self.navigationController?.navigationBar.barTintColor = .darkGrayColor()
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
-        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.barTintColor = .darkGray
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+        self.navigationController?.navigationBar.isTranslucent = false
     }
     
-    private func downloadContent() {
+    fileprivate func downloadContent() {
         
         dao.getArticles (
             
@@ -50,35 +50,35 @@ class ArticleListController: UITableViewController {
     
     // MARK: - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return articles.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("articleCell", forIndexPath: indexPath) as! ArticleCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath) as! ArticleCell
         
         cell.setAttributes(articles[indexPath.row])
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         articleSelected = articles[indexPath.row]
         
-        performSegueWithIdentifier("sgArticle", sender: nil)
+        performSegue(withIdentifier: "sgArticle", sender: nil)
     }
     
     // MARK: - Navigation
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let identifier = segue.identifier {
         
@@ -86,7 +86,7 @@ class ArticleListController: UITableViewController {
                 
             case "sgArticle":
                 
-                if let articleVC = segue.destinationViewController as? ArticleController {
+                if let articleVC = segue.destination as? ArticleController {
                     
                     articleVC.article = articleSelected
                 }

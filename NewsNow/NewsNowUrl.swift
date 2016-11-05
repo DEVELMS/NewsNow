@@ -12,7 +12,7 @@ protocol NewsNowURL { }
 
 extension NewsNowURL {
     
-    func getUrl(type: RequestType, filters: [(name: String, value: AnyObject)]? = nil) -> String {
+    func getUrl(_ type: RequestType, filters: [(name: String, value: Any)]? = nil) -> String {
         
         let url = type.rawValue
         
@@ -24,20 +24,20 @@ extension NewsNowURL {
         return getUrlWithFilters(url, filters: filters)
     }
     
-    private func getUrlWithFilters(url: String, filters: [(name: String, value: AnyObject)]) -> String {
+    fileprivate func getUrlWithFilters(_ url: String, filters: [(name: String, value: Any)]) -> String {
 
         var newUrl = url
         
-        for filter in filters.enumerate() {
+        for (index, filter) in filters.enumerated() {
             
             var separator = "?"
             
-            if filter.index > 0 {
+            if index > 0 {
                 
                 separator = "&"
             }
             
-            newUrl = "\(newUrl)\(separator)\(filter.element.name)=\(filter.element.value)"
+            newUrl = "\(newUrl)\(separator)\(filter.name)=\(filter.value)"
         }
         
         return newUrl

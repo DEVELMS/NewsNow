@@ -3,8 +3,7 @@ platform :ios, '9.0'
 use_frameworks!
 
 target ‘NewsNow’ do
-    pod 'SwiftyJSON', '~> 2.3'
-    pod 'Alamofire', '3.4.1'
-    pod 'Kingfisher', '~> 2.4'
-    pod 'YouTubePlayer'
+    pod 'SwiftyJSON', '3.1.1'
+    pod 'Just', '0.5.7'
+    pod 'Kingfisher', '3.1.4'
 end

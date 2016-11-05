@@ -6,7 +6,7 @@
 //
 //
 
-import Alamofire
+import Just
 
 enum Result<T> {
     
@@ -14,12 +14,11 @@ enum Result<T> {
     case failure(error: Int, message: String)
 }
 
-class Service: NSObject, APIProtocol, NewsNowURL {
+class Service: Requesting, NewsNowURL {
     
     static let sharedInstance = Service()
-    private override init() {}
     
-    func APIRequest(method: Alamofire.Method, endPoint: RequestType, filters: [(name: String, value: AnyObject)]? = nil, parameters: [String: AnyObject]? = nil, absoluteURL: Bool = false, success: AnyObject -> Void, failure: Int -> Void) {
+    func APIRequest(method: HTTPMethod, endPoint: RequestType, filters: [(name: String, value: Any)]? = nil, parameters: [String: Any]? = nil, absoluteURL: Bool = false, success: @escaping (Any) -> Void, failure: @escaping (Int) -> Void) {
         
         var url = ""
         
@@ -30,30 +29,46 @@ class Service: NSObject, APIProtocol, NewsNowURL {
         }
         else { url = endPoint.rawValue }
         
-        print(url)
+        print("request to: \(url)")
         
-        Alamofire.request(method, url, parameters: parameters)
-            .validate()
-            .responseJSON {
-                response in
+        switch method {
+        case .GET :
+            
+            getTo(url: url, success: {
+                result in
+                //print(result)
+                success(result)
+            }, failure: {
+                status in
+                //print(status)
+                failure(status)
+            })
+            
+        default: print("HTTPMethod not supported")
+        }
+    }
+    
+    private func getTo(url: String, success: @escaping (Any) -> Void, failure: @escaping (Int) -> Void) {
+
+        Just.get(url) {
+            r in
+            
+            if r.ok {
                 
-                switch response.result {
-                    
-                case .Success(let data):
-                    
-                    success(data)
-                    
-                case .Failure(let error):
-                    
-                    var status = error.code
-                    
-                    if let statusCode = error.userInfo["StatusCode"] as? Int {
-                        
-                        status = statusCode
-                    }
-                    
-                    failure(status)
+                guard let response = r.json else {
+                    print("no response")
+                    return
                 }
+                success(response)
+            }
+            else {
+                
+                guard let code = r.statusCode else {
+                    print("failure without statusCode")
+                    return
+                }
+                failure(code)
+            }
         }
     }
 }

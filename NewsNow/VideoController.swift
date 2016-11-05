@@ -7,13 +7,12 @@
 //
 
 import UIKit
-import YouTubePlayer
 
 class VideoController: UITableViewController {
 
     var video = Video()
-    private var dao = VideoDao()
-    private var videoPlayer: YouTubePlayerView!
+    fileprivate var dao = VideoDao()
+    //fileprivate var videoPlayer: YouTubePlayerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,21 +22,22 @@ class VideoController: UITableViewController {
         downloadContent()
     }
     
-    private func setAttributes() {
+    fileprivate func setAttributes() {
     
-        self.navigationController?.navigationBar.barTintColor = .darkGrayColor()
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
-        self.navigationController?.navigationBar.tintColor = .whiteColor()
-        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.barTintColor = .darkGray
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.isTranslucent = false
     }
     
-    private func setTitle() {
+    fileprivate func setTitle() {
     
         self.title = video.description
     }
     
-    private func setLayoutAttributes(cell: UITableViewCell) {
-    
+    fileprivate func setLayoutAttributes(_ cell: UITableViewCell) {
+        print("setLayoutAttributes")
+    /*
         videoPlayer = YouTubePlayerView(frame: CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height))
         videoPlayer.loadVideoID(video.id)
         
@@ -54,9 +54,10 @@ class VideoController: UITableViewController {
                 videoPlayer.pause()
             }
         }
+    */
     }
 
-    private func downloadContent() {
+    fileprivate func downloadContent() {
     
         dao.getRelated(id: video.id,
                        
@@ -75,12 +76,12 @@ class VideoController: UITableViewController {
     
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         
         return 2
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 0 {
             
@@ -90,25 +91,25 @@ class VideoController: UITableViewController {
         return video.related.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         if indexPath.section == 0 {
             
-            let cell = tableView.dequeueReusableCellWithIdentifier("video", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "video", for: indexPath)
             
             setLayoutAttributes(cell)
             
             return cell
         }
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("videosCell", forIndexPath: indexPath) as! VideoCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "videosCell", for: indexPath) as! VideoCell
         
         cell.setAttributes(video.related[indexPath.row])
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if indexPath.section == 0 {
             
@@ -118,7 +119,7 @@ class VideoController: UITableViewController {
         return 100
     }
 
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         if section == 1 {
             
@@ -131,8 +132,8 @@ class VideoController: UITableViewController {
             
             title.text = "Vídeos relacionados"
             
-            title.textColor = .whiteColor()
-            header.backgroundColor = .lightGrayColor()
+            title.textColor = .white
+            header.backgroundColor = .lightGray
             
             header.frame = CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: headerHeight)
             title.frame = CGRect(x: x, y: y, width: header.frame.width - x * 2, height: titleHeight)
@@ -147,7 +148,7 @@ class VideoController: UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         if section == 1 {
             
@@ -157,7 +158,7 @@ class VideoController: UITableViewController {
         return 0
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.section != 0 {
             

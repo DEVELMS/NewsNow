@@ -18,28 +18,28 @@ class ArticleController: UITableViewController {
         setAttributes()
     }
     
-    private func setAttributes() {
+    fileprivate func setAttributes() {
         
         self.tableView.estimatedRowHeight = 410
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
         self.title = "Artigo"
-        self.navigationController?.navigationBar.barTintColor = .darkGrayColor()
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
-        self.navigationController?.navigationBar.tintColor = .whiteColor()
-        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.barTintColor = .darkGray
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.isTranslucent = false
     }
     
     // MARK: - Table view data source
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return 1
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("articleCell", forIndexPath: indexPath) as!  ArticleCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath) as!  ArticleCell
         
         cell.setAttributes(article)
         

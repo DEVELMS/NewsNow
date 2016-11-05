@@ -1,21 +1,18 @@
 PODS:
-  - Alamofire (3.4.1)
-  - Kingfisher (2.4.2)
-  - SwiftyJSON (2.3.2)
-  - YouTubePlayer (0.3.0)
+  - Just (0.5.7)
+  - Kingfisher (3.1.4)
+  - SwiftyJSON (3.1.1)
 
 DEPENDENCIES:
-  - Alamofire (= 3.4.1)
-  - Kingfisher (~> 2.4)
-  - SwiftyJSON (~> 2.3)
-  - YouTubePlayer
+  - Just (= 0.5.7)
+  - Kingfisher (= 3.1.4)
+  - SwiftyJSON (= 3.1.1)
 
 SPEC CHECKSUMS:
-  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
-  Kingfisher: 05bf8d04408aaa70fcd2c8c81b9f1d0f1ad313dd
-  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
-  YouTubePlayer: 88713a96c356f2c88da8925eb61438eda88bcd57
+  Just: d19e769d86b965e39ae58cb3c0cbad07706634a8
+  Kingfisher: 6c67e3e57f2d81a9cfdfa25052cd86f33ceac9bb
+  SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-PODFILE CHECKSUM: f009de7ea75aedffc92006ac982326befc9b95b1
+PODFILE CHECKSUM: b5daf69af2de95d1f9f451161a6162af776cb8e0
 
 COCOAPODS: 1.0.0

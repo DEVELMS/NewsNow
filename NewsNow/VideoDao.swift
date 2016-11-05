@@ -10,58 +10,58 @@ import SwiftyJSON
 
 class VideoDao {
 
-    func getVideo(parameters: [String: AnyObject]? = nil, id: String, success: (video: Video) -> Void, fail: (error: String) -> Void) {
+    func getVideo(parameters: [String: Any]? = nil, id: String, success: @escaping (_ video: Video) -> Void, fail: @escaping (_ error: String) -> Void) {
         
-        Service.sharedInstance.APIRequest(.GET, endPoint: .video, filters: [(name: "id", value: id)], parameters: parameters,
+        Service.sharedInstance.APIRequest(method: .GET, endPoint: .video, filters: [(name: "id", value: id)], parameters: parameters,
                                           
             success: { result in
-                
-                success(video: self.parseVideo(JSON(result)))
+                print("getVideo success")
+                success(self.parseVideo(json: JSON(result)))
                                             
             }, failure: { failure in
                 
-                fail(error: "Não foi possível carregar os videos.")
+                fail("Não foi possível carregar os videos.")
             }
         )
     }
     
-    func getVideos(parameters: [String: AnyObject]? = nil, success: (videos: [Video]) -> Void, fail: (error: String) -> Void) {
+    func getVideos(parameters: [String: Any]? = nil, success: @escaping (_ videos: [Video]) -> Void, fail: @escaping (_ error: String) -> Void) {
         
-        Service.sharedInstance.APIRequest(.GET, endPoint: .videos, parameters: parameters,
+        Service.sharedInstance.APIRequest(method: .GET, endPoint: .videos, parameters: parameters,
                                           
             success: { result in
-                
-                success(videos: self.parseVideos(JSON(result)))
+                print("getVideos success")
+                success(self.parseVideos(json: JSON(result)))
                                             
             }, failure: { failure in
                 
-                fail(error: "Não foi possível carregar os videos.")
+                fail("Não foi possível carregar os videos.")
             }
         )
     }
     
-    func getRelated(parameters: [String: AnyObject]? = nil, id: String, success: (videos: [Video]) -> Void, fail: (error: String) -> Void) {
+    func getRelated(parameters: [String: Any]? = nil, id: String, success: @escaping (_ videos: [Video]) -> Void, fail: @escaping (_ error: String) -> Void) {
         
-        Service.sharedInstance.APIRequest(.GET, endPoint: .related, filters: [(name: "id", value: id)], parameters: parameters,
+        Service.sharedInstance.APIRequest(method: .GET, endPoint: .related, filters: [(name: "id", value: id)], parameters: parameters,
                                           
             success: { result in
                                             
-                success(videos: self.parseVideos(JSON(result)))
+                success(self.parseVideos(json: JSON(result)))
                                             
             }, failure: { failure in
                 
-                fail(error: "Não foi possível carregar os videos relacionados.")
+                fail("Não foi possível carregar os videos relacionados.")
             }
         )
     }
     
-    private func parseVideos(json: JSON) -> [Video] {
+    fileprivate func parseVideos(json: JSON) -> [Video] {
         
         var videos = [Video]()
         
         for (_, video) in json {
             
-            let video = parseVideo(video)
+            let video = parseVideo(json: video)
             
             videos.append(video)
         }
@@ -69,7 +69,7 @@ class VideoDao {
         return videos
     }
     
-    private func parseVideo(json: JSON) -> Video {
+    fileprivate func parseVideo(json: JSON) -> Video {
         
         let id = json["id"].stringValue
         let url = json["url"].stringValue
@@ -81,7 +81,7 @@ class VideoDao {
         
         if json["related"].array != nil {
             
-            video.related = parseVideos(json["related"])
+            video.related = parseVideos(json: json["related"])
         }
         
         return video

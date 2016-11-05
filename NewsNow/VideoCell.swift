@@ -11,19 +11,19 @@ import Kingfisher
 
 class VideoCell: UITableViewCell {
 
-    @IBOutlet private weak var videoImage: UIImageView!
-    @IBOutlet private weak var videoDescription: UILabel!
-    @IBOutlet private weak var duration: UILabel!
+    @IBOutlet fileprivate weak var videoImage: UIImageView!
+    @IBOutlet fileprivate weak var videoDescription: UILabel!
+    @IBOutlet fileprivate weak var duration: UILabel!
     
-    func setAttributes(video: Video) {
+    func setAttributes(_ video: Video) {
         
         self.videoDescription.text = video.description
         self.duration.text = video.duration
         setImage(video.thumbnail)
     }
     
-    private func setImage(url: String) {
+    fileprivate func setImage(_ url: String) {
     
-        self.videoImage.kf_setImageWithURL(NSURL(string: url)!, placeholderImage: UIImage(named: "placeholder-video"))
+        self.videoImage.kf.setImage(with: URL(string: url)!, placeholder: #imageLiteral(resourceName: "placeholder-video"))
     }
 }

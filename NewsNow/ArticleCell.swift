@@ -11,19 +11,19 @@ import Kingfisher
 
 class ArticleCell: UITableViewCell {
     
-    @IBOutlet private weak var articleImage: UIImageView!
-    @IBOutlet private weak var articTitle: UILabel!
-    @IBOutlet private weak var articDescription: UILabel!
+    @IBOutlet fileprivate weak var articleImage: UIImageView!
+    @IBOutlet fileprivate weak var articTitle: UILabel!
+    @IBOutlet fileprivate weak var articDescription: UILabel!
     
-    func setAttributes(article: Article) {
+    func setAttributes(_ article: Article) {
         
         self.articTitle.text = article.title
         self.articDescription.text = article.description
         setImage(article.thumbnail)
     }
     
-    private func setImage(url: String) {
+    fileprivate func setImage(_ url: String) {
         
-        self.articleImage.kf_setImageWithURL(NSURL(string: url)!, placeholderImage: UIImage(named: "placeholder-article"))
+        self.articleImage.kf.setImage(with: URL(string: url)!, placeholder: #imageLiteral(resourceName: "placeholder-article"))
     }
 }
