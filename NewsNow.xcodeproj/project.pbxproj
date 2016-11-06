@@ -22,6 +22,9 @@
 		C2A65E271DCE9BBC00331B80 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A65E251DCE9BBC00331B80 /* NSObjectExtension.swift */; };
 		C2A65E281DCE9BBC00331B80 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A65E261DCE9BBC00331B80 /* UIColorExtension.swift */; };
 		C2A65E2A1DCEADF600331B80 /* CollectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A65E291DCEADF600331B80 /* CollectionProtocol.swift */; };
+		C2A65E2D1DCFB22900331B80 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A65E2B1DCFB22900331B80 /* PlayerViewController.swift */; };
+		C2A65E2E1DCFB22900331B80 /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2A65E2C1DCFB22900331B80 /* PlayerViewController.xib */; };
+		C2A65E321DCFB82B00331B80 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A65E311DCFB82B00331B80 /* ViewExtension.swift */; };
 		C2B619B61D8F8C7E006134D2 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B619B51D8F8C7E006134D2 /* ArticleCell.swift */; };
 		C2B874831DCE74EA00E250BF /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B874821DCE74EA00E250BF /* Delay.swift */; };
 		C2D45E4D1D89DF5200FA951B /* VideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D45E4C1D89DF5200FA951B /* VideoController.swift */; };
@@ -70,6 +73,9 @@
 		C2A65E251DCE9BBC00331B80 /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
 		C2A65E261DCE9BBC00331B80 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		C2A65E291DCEADF600331B80 /* CollectionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionProtocol.swift; sourceTree = "<group>"; };
+		C2A65E2B1DCFB22900331B80 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		C2A65E2C1DCFB22900331B80 /* PlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerViewController.xib; sourceTree = "<group>"; };
+		C2A65E311DCFB82B00331B80 /* ViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		C2B619B51D8F8C7E006134D2 /* ArticleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 		C2B874821DCE74EA00E250BF /* Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
 		C2D45E4C1D89DF5200FA951B /* VideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoController.swift; sourceTree = "<group>"; };
@@ -181,6 +187,7 @@
 		C2A65E241DCE9B9500331B80 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C2A65E311DCFB82B00331B80 /* ViewExtension.swift */,
 				C2A65E251DCE9BBC00331B80 /* NSObjectExtension.swift */,
 				C2A65E261DCE9BBC00331B80 /* UIColorExtension.swift */,
 			);
@@ -274,6 +281,8 @@
 				C2A65E221DCE9AFC00331B80 /* VideoCellCollection.swift */,
 				C2A65E1C1DCE97D900331B80 /* CollectionViewVideoHeader.swift */,
 				C2A65E201DCE988600331B80 /* CollectionViewVideoCell.swift */,
+				C2A65E2C1DCFB22900331B80 /* PlayerViewController.xib */,
+				C2A65E2B1DCFB22900331B80 /* PlayerViewController.swift */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -389,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2EA50D41D84931500A3B1B5 /* LaunchScreen.storyboard in Resources */,
+				C2A65E2E1DCFB22900331B80 /* PlayerViewController.xib in Resources */,
 				C2EA50D11D84931500A3B1B5 /* Assets.xcassets in Resources */,
 				C2EA50CF1D84931500A3B1B5 /* Main.storyboard in Resources */,
 			);
@@ -472,6 +482,7 @@
 				C2A65E231DCE9AFC00331B80 /* VideoCellCollection.swift in Sources */,
 				C23A77771D8F38840041C340 /* ServiceProtocol.swift in Sources */,
 				C2A65E281DCE9BBC00331B80 /* UIColorExtension.swift in Sources */,
+				C2A65E2D1DCFB22900331B80 /* PlayerViewController.swift in Sources */,
 				C2B619B61D8F8C7E006134D2 /* ArticleCell.swift in Sources */,
 				C2D45E4F1D89DF6300FA951B /* ArticleController.swift in Sources */,
 				C2EA50FC1D86355600A3B1B5 /* VideoListController.swift in Sources */,
@@ -481,6 +492,7 @@
 				C2EA50FE1D86359B00A3B1B5 /* ArticleListController.swift in Sources */,
 				C23A776B1D8F34740041C340 /* ArticleModel.swift in Sources */,
 				C2A65E271DCE9BBC00331B80 /* NSObjectExtension.swift in Sources */,
+				C2A65E321DCFB82B00331B80 /* ViewExtension.swift in Sources */,
 				C23A77711D8F34A00041C340 /* Service.swift in Sources */,
 				C23A776F1D8F34950041C340 /* ArticleDao.swift in Sources */,
 				C2D45E4D1D89DF5200FA951B /* VideoController.swift in Sources */,

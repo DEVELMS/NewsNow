@@ -12,17 +12,17 @@ class VideoController: UITableViewController {
 
     var video = Video()
     fileprivate var dao = VideoDao()
-    //fileprivate var videoPlayer: YouTubePlayerView!
+    fileprivate let playerViewController = PlayerViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setAttributes()
+        setNavigationAttributes()
         setTitle()
         downloadContent()
     }
     
-    fileprivate func setAttributes() {
+    fileprivate func setNavigationAttributes() {
     
         self.navigationController?.navigationBar.barTintColor = .darkGray
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
@@ -35,28 +35,15 @@ class VideoController: UITableViewController {
         self.title = video.description
     }
     
-    fileprivate func setLayoutAttributes(_ cell: UITableViewCell) {
-        print("setLayoutAttributes")
-    /*
-        videoPlayer = YouTubePlayerView(frame: CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height))
-        videoPlayer.loadVideoID(video.id)
+    fileprivate func setPlayerAttributes(_ cell: UITableViewCell) {
         
-        cell.addSubview(videoPlayer)
-        
-        if videoPlayer.ready {
-            
-            if videoPlayer.playerState != YouTubePlayerState.Playing {
-                
-                videoPlayer.play()
-            }
-            else {
-                
-                videoPlayer.pause()
-            }
-        }
-    */
+        playerViewController.video = video
+        playerViewController.view.frame = cell.frame
+        addChildViewController(playerViewController)
+        cell.addSubview(playerViewController.view)
+        playerViewController.didMove(toParentViewController: self)
     }
-
+    
     fileprivate func downloadContent() {
     
         dao.getRelated(id: video.id,
@@ -97,7 +84,7 @@ class VideoController: UITableViewController {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "video", for: indexPath)
             
-            setLayoutAttributes(cell)
+            setPlayerAttributes(cell)
             
             return cell
         }
@@ -170,6 +157,7 @@ class VideoController: UITableViewController {
                     self.video = video
                     self.setTitle()
                     self.tableView.reloadData()
+                    self.playerViewController.changeVideo(video: self.video)
                             
                 }, fail: {
                     failure in
