@@ -84,7 +84,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="140" height="100"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder-video" translatesAutoresizingMaskIntoConstraints="NO" id="BrO-ha-Kej">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder-video" translatesAutoresizingMaskIntoConstraints="NO" id="BrO-ha-Kej">
                                                                 <rect key="frame" x="0.0" y="0.0" width="140" height="100"/>
                                                             </imageView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7fv-6w-B9e">
@@ -107,23 +107,37 @@
                                                                     <constraint firstAttribute="width" constant="50" id="pIe-Rd-ABo"/>
                                                                 </constraints>
                                                             </view>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titulo" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTB-VW-s3d">
-                                                                <rect key="frame" x="5" y="5" width="130" height="15"/>
-                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37k-xr-8pt">
+                                                                <rect key="frame" x="5" y="5" width="130" height="20"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titulo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTB-VW-s3d">
+                                                                        <rect key="frame" x="2" y="2.5" width="126" height="15"/>
+                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.74753565436241609" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="130" id="BtQ-Sr-Muz"/>
+                                                                    <constraint firstAttribute="height" constant="20" id="GJt-Bs-NTv"/>
+                                                                    <constraint firstItem="VTB-VW-s3d" firstAttribute="centerX" secondItem="37k-xr-8pt" secondAttribute="centerX" id="MQw-fH-jJW"/>
+                                                                    <constraint firstItem="VTB-VW-s3d" firstAttribute="leading" secondItem="37k-xr-8pt" secondAttribute="leading" constant="2" id="QLP-A7-zHZ"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="VTB-VW-s3d" secondAttribute="trailing" constant="2" id="Y3T-y4-Jlo"/>
+                                                                    <constraint firstItem="VTB-VW-s3d" firstAttribute="centerY" secondItem="37k-xr-8pt" secondAttribute="centerY" id="vaQ-SG-d5k"/>
+                                                                </constraints>
+                                                            </view>
                                                         </subviews>
                                                     </view>
                                                     <constraints>
                                                         <constraint firstItem="7fv-6w-B9e" firstAttribute="trailing" secondItem="BrO-ha-Kej" secondAttribute="trailing" id="3z4-gG-0mo"/>
                                                         <constraint firstItem="7fv-6w-B9e" firstAttribute="bottom" secondItem="BrO-ha-Kej" secondAttribute="bottom" id="DR4-O0-Cgx"/>
                                                         <constraint firstItem="BrO-ha-Kej" firstAttribute="top" secondItem="yG0-Ma-fXw" secondAttribute="top" id="Dsy-t4-da4"/>
-                                                        <constraint firstAttribute="trailing" secondItem="VTB-VW-s3d" secondAttribute="trailing" constant="5" id="WTL-YD-ymu"/>
                                                         <constraint firstItem="BrO-ha-Kej" firstAttribute="leading" secondItem="yG0-Ma-fXw" secondAttribute="leading" id="ZZX-et-Cvt"/>
-                                                        <constraint firstItem="VTB-VW-s3d" firstAttribute="leading" secondItem="yG0-Ma-fXw" secondAttribute="leadingMargin" constant="-3" id="aLs-EF-qgw"/>
-                                                        <constraint firstItem="VTB-VW-s3d" firstAttribute="top" secondItem="yG0-Ma-fXw" secondAttribute="topMargin" constant="-3" id="s13-Me-fCu"/>
+                                                        <constraint firstItem="37k-xr-8pt" firstAttribute="top" secondItem="yG0-Ma-fXw" secondAttribute="top" constant="5" id="gpP-As-7Oz"/>
+                                                        <constraint firstAttribute="trailing" secondItem="37k-xr-8pt" secondAttribute="trailing" constant="5" id="jya-6F-VX2"/>
                                                         <constraint firstAttribute="trailing" secondItem="BrO-ha-Kej" secondAttribute="trailing" id="sZ9-wv-EdS"/>
+                                                        <constraint firstItem="37k-xr-8pt" firstAttribute="leading" secondItem="yG0-Ma-fXw" secondAttribute="leading" constant="5" id="twi-5H-Icl"/>
                                                         <constraint firstAttribute="bottom" secondItem="BrO-ha-Kej" secondAttribute="bottom" id="vfx-Rb-UjM"/>
                                                     </constraints>
                                                     <connections>
@@ -311,14 +325,6 @@
             </objects>
             <point key="canvasLocation" x="3214" y="-389"/>
         </scene>
-        <!--AV Player View Controller-->
-        <scene sceneID="oXk-2k-HhU">
-            <objects>
-                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="avR-tP-DzC" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lCc-ys-K4U" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3984" y="-390"/>
-        </scene>
         <!--Artigos-->
         <scene sceneID="CGN-27-bBK">
             <objects>
@@ -413,7 +419,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="410"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder-article" translatesAutoresizingMaskIntoConstraints="NO" id="brm-l7-aVb">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder-article" translatesAutoresizingMaskIntoConstraints="NO" id="brm-l7-aVb">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="335"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="335" id="j0k-C1-Pv2"/>
