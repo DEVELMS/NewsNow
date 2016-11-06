@@ -36,11 +36,9 @@ class Service: Requesting, NewsNowURL {
             
             getTo(url: url, success: {
                 result in
-                //print(result)
                 success(result)
             }, failure: {
                 status in
-                //print(status)
                 failure(status)
             })
             
