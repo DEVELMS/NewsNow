@@ -38,8 +38,10 @@ class ArticleListController: UITableViewController {
             success: {
                 articles in
                 
-                self.articles = articles
-                self.tableView.reloadData()
+                Delay.now {
+                    self.articles = articles
+                    self.tableView.reloadData()
+                }
                 
             }, fail: {
                 failure in

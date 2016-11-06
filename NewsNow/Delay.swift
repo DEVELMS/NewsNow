@@ -22,7 +22,7 @@ struct Delay {
     
     static func now(completion: @escaping () -> Void) {
     
-        DispatchQueue.main.sync {
+        DispatchQueue.main.async {
             
             completion()
         }
