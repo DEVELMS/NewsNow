@@ -23,8 +23,6 @@ class ArticleCell: UITableViewCell {
     
     fileprivate func setImage(_ url: String) {
         
-        
-        
         Image.get(url: url, success: {
             image in
             
