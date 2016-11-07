@@ -31,7 +31,7 @@ struct Image {
                 
         }, failure: { failure in
             
-                print("Não foi possível carregar uma imagem desta url: \(url)")
+                print("Não foi possível carregar imagem nesta url: \(url)")
         })
     }
 }
