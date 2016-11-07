@@ -1,5 +1,5 @@
 //
-//  Delay.swift
+//  Do.swift
 //  TicTacToe
 //
 //  Created by Storm on 01/11/16.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Delay {
+struct Do {
     
     static func wait(seconds: Double, completion: @escaping () -> Void) {
         

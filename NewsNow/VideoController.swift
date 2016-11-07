@@ -51,10 +51,8 @@ class VideoController: UITableViewController {
             success: {
                 videos in
                 
-                Delay.now {
-                    self.video.related = videos
-                    self.tableView.reloadData()
-                }
+                self.video.related = videos
+                self.tableView.reloadData()
                 
             }, fail: {
                 failure in
@@ -156,13 +154,11 @@ class VideoController: UITableViewController {
                 success: {
                     video in
                     
-                    Delay.now {
-                        self.video = video
-                        self.setTitle()
-                        self.tableView.reloadData()
-                        self.playerViewController.changeVideo(video: self.video)
-                    }
-                            
+                    self.video = video
+                    self.setTitle()
+                    self.tableView.reloadData()
+                    self.playerViewController.changeVideo(video: self.video)
+                    
                 }, fail: {
                     failure in
                     

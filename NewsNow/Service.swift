@@ -57,7 +57,10 @@ class Service: Requesting, NewsNowURL {
                     print("no response")
                     return
                 }
-                success(response)
+                
+                Do.now {
+                    success(response)
+                }
             }
             else {
                 
@@ -65,7 +68,10 @@ class Service: Requesting, NewsNowURL {
                     print("failure without statusCode")
                     return
                 }
-                failure(code)
+                
+                Do.now {
+                    failure(code)
+                }
             }
         }
     }

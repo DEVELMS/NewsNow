@@ -37,10 +37,8 @@ class VideoListController: UITableViewController, SelectingCollectionVideo {
             success: {
                 videos in
                 
-                Delay.now {
-                    self.videos = videos
-                    self.tableView.reloadData()
-                }
+                self.videos = videos
+                self.tableView.reloadData()
             
             }, fail: {
                 failure in
