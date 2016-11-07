@@ -46,6 +46,36 @@ class Service: Requesting, NewsNowURL {
         }
     }
     
+    func APIRequestImage(url: String, success: @escaping (Any) -> Void, failure: @escaping (Int) -> Void)  {
+        
+        Just.get(url) {
+            r in
+            
+            if r.ok {
+                
+                guard let response = r.content else {
+                    print("no response")
+                    return
+                }
+                
+                Do.now {
+                    success(response)
+                }
+            }
+            else {
+                
+                guard let code = r.statusCode else {
+                    print("failure without statusCode")
+                    return
+                }
+                
+                Do.now {
+                    failure(code)
+                }
+            }
+        }
+    }
+    
     private func getTo(url: String, success: @escaping (Any) -> Void, failure: @escaping (Int) -> Void) {
 
         Just.get(url) {

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 class VideoCell: UITableViewCell {
 
@@ -24,6 +23,10 @@ class VideoCell: UITableViewCell {
     
     fileprivate func setImage(_ url: String) {
     
-        self.videoImage.kf.setImage(with: URL(string: url)!, placeholder: #imageLiteral(resourceName: "placeholder-video"))
+        Image.get(url: url, success: {
+            image in
+            
+            self.videoImage.image = image
+        })
     }
 }

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 class ArticleCell: UITableViewCell {
     
@@ -24,6 +23,12 @@ class ArticleCell: UITableViewCell {
     
     fileprivate func setImage(_ url: String) {
         
-        self.articleImage.kf.setImage(with: URL(string: url)!, placeholder: #imageLiteral(resourceName: "placeholder-article"))
+        
+        
+        Image.get(url: url, success: {
+            image in
+            
+            self.articleImage.image = image
+        })
     }
 }

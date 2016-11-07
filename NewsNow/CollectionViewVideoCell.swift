@@ -33,6 +33,10 @@ class CollectionViewVideoCell: UICollectionViewCell {
     
     private func setImage(_ url: String) {
         
-        self.background.kf.setImage(with: URL(string: url)!, placeholder: #imageLiteral(resourceName: "placeholder-video"))
+        Image.get(url: url, success: {
+            image in
+            
+            self.background.image = image
+        })
     }
 }
