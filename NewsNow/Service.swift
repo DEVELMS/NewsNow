@@ -54,7 +54,7 @@ class Service: Requesting, NewsNowURL {
             if r.ok {
                 
                 guard let response = r.content else {
-                    print("no response")
+                    print("no content")
                     return
                 }
                 
@@ -84,7 +84,7 @@ class Service: Requesting, NewsNowURL {
             if r.ok {
                 
                 guard let response = r.json else {
-                    print("no response")
+                    print("no json")
                     return
                 }
                 

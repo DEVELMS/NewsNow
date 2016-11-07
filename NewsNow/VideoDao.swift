@@ -30,7 +30,7 @@ class VideoDao {
         Service.sharedInstance.APIRequest(method: .GET, endPoint: .videos, parameters: parameters,
                                           
             success: { result in
-                print("getVideos success")
+                
                 success(self.parseVideos(json: JSON(result)))
                                             
             }, failure: { failure in
